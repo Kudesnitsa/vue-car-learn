@@ -17,13 +17,12 @@ new Vue({
     components: {App},
     template: '<App/>',
     router,
-
     data: {
         url: 'http://lab.kids-lu-server.xyz/api/v1/',
         config: {
             headers: {
                 Authorization: "Basic " + btoa("test" + ":" + "test")
             }
-        },
+        }
     }
 });

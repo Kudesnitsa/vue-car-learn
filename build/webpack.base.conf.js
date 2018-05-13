@@ -64,10 +64,5 @@ module.exports = {
             }
 
         ]
-    },
-    vue: {
-        loaders: {
-            scss: 'style!css!sass'
-        }
     }
 }

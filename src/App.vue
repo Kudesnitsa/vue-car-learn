@@ -1,9 +1,11 @@
 <template>
 
     <div class="wrapper">
-        <main-header></main-header>
+        <main-header v-on:search="search = $event"></main-header>
         <main>
-            <router-view :cars="cars" :url="url" :config="config" ></router-view>
+            <router-view :cars="filteredCars" :url="url" :config="config"
+                         v-on:create-car="cars.push($event)"
+                        v-on:remove-car="cars.splice(cars.indexOf($event),1)"></router-view>
         </main>
         <main-footer></main-footer>
     </div>
@@ -20,17 +22,40 @@
         },
         data: function () {
             return {
-                url:this.$parent.url,
-                config:this.$parent.config,
-                cars: []
+                url: this.$parent.url,
+                config: this.$parent.config,
+                cars: [],
+                filteredFields: [
+                    'name', 'description', 'transportType', 'run', 'fuelConsumption', 'volume', 'fuel', 'transmission',
+                    'driveType', 'city', 'color', 'abs', 'centralLock', 'airbag', 'alarms', 'price', 'phone'
+                ],
+                searchableFields: [
+                    'name', 'description', 'transportType', 'fuel', 'transmission',
+                    'driveType', 'city', 'color'
+                ],
+                search: ''
             }
         },
         methods: {
             getCars(){
-                this.$http.get(this.url+'auto',this.config).then(response => {
+                this.$http.get(this.url + 'auto', this.config).then(response => {
                     this.cars = response.body.list;
                 }, error => {
                     console.error(error);
+                });
+            },
+        },
+        computed: {
+            filteredCars(){
+                let searchLower = this.search.toLowerCase(),
+                    fields = this.searchableFields;
+                return this.cars.filter(car => {
+                    for (let field of fields) {
+                        if (car[field].toLowerCase().includes(searchLower)) {
+                            return true;
+                        }
+                    }
+                    return false;
                 });
             }
         },

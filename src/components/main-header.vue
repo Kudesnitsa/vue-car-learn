@@ -1,12 +1,12 @@
 <template>
       <header>
           <nav class="navbar navbar-light bg-light justify-content-between">
-              <a class="navbar-brand">Navbar</a>
-              <a class="navbar-brand">Navbar</a>
-              <a class="navbar-brand">Navbar</a>
-              <a class="navbar-brand">Navbar</a>
-              <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+
+              <router-link class="navbar-brand" to="/">Home</router-link>
+              <router-link class="navbar-brand" to="/cars">Cars</router-link>
+              <router-link class="navbar-brand" to="/car/add">Add car</router-link>
+              <form class="form-inline" @submit.prevent="$router.push('/cars')">
+                  <input class="form-control mr-sm-2" v-on:input="search($event.target.value)" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
           </nav>
@@ -16,10 +16,14 @@
     export default {
         name: 'mainHeader',
         data: function () {
-            return {
-
-            }
+            return {}
         },
+        methods:{
+            search(text){
+                this.$emit('search', text);
+
+            },
+        }
     }
 
 </script>
