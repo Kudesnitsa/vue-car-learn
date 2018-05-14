@@ -1,98 +1,79 @@
 <template>
 
-
-    <!--Footer-->
-    <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
-
-        <!--Footer Links-->
-        <div class="container text-center text-md-left">
-
-            <!-- Footer links -->
-            <div class="row text-center text-md-left mt-3 pb-3">
-
-                <!--First column-->
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
-                    <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <footer class="page-footer font-small indigo pt-0">
+        <div class="container">
+            <div class="row pt-5 mb-3 text-center d-flex justify-content-center">
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <router-link class="navbar-brand" to="/">About us</router-link>
+                    </h6>
                 </div>
-                <!--/.First column-->
-
-                <hr class="w-100 clearfix d-md-none">
-
-                <!--Second column-->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                    <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
-                    <p><a href="#!">MDBootstrap</a></p>
-                    <p><a href="#!">MDWordPress</a></p>
-                    <p><a href="#!">BrandFlow</a></p>
-                    <p><a href="#!">Bootstrap Angular</a></p>
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <router-link class="navbar-brand" to="/cars">Cars</router-link>
+                    </h6>
                 </div>
-                <!--/.Second column-->
-
-                <hr class="w-100 clearfix d-md-none">
-
-                <!--Third column-->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                    <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
-                    <p><a href="#!">Your Account</a></p>
-                    <p><a href="#!">Become an Affiliate</a></p>
-                    <p><a href="#!">Shipping Rates</a></p>
-                    <p><a href="#!">Help</a></p>
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <router-link class="navbar-brand" to="/car/add">Add car</router-link>
+                    </h6>
                 </div>
-                <!--/.Third column-->
-
-                <hr class="w-100 clearfix d-md-none">
-
-                <!--Fourth column-->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                    <p><i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
-                    <p><i class="fa fa-envelope mr-3"></i> info@gmail.com</p>
-                    <p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
-                    <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <router-link class="navbar-brand" to="/">FAQ</router-link>
+                    </h6>
                 </div>
-                <!--/.Fourth column-->
-
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <router-link class="navbar-brand" to="/">Contact</router-link>
+                    </h6>
+                </div>
             </div>
-            <!-- Footer links -->
-
-            <hr>
-
-            <div class="row py-3 d-flex align-items-center">
-
-                <!--Grid column-->
-                <div class="col-md-8 col-lg-8">
-
-                    <!--Copyright-->
-                    <p class="text-center text-md-left grey-text">© 2018 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"><strong> MDBootstrap.com</strong></a></p>
-                    <!--/.Copyright-->
+            <hr class="rgba-white-light" style="margin: 0 15%;">
+            <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+                <div class="col-md-8 col-12 mt-5">
+                    <p style="line-height: 1.7rem"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab asperiores aspernatur aut commodi error iste libero minima molestias necessitatibus, nobis odio possimus quibusdam reiciendis rem repudiandae sequi veritatis voluptatibus!</span><span>Ab aliquam assumenda blanditiis et, fugiat illum ipsam iure laudantium maiores modi neque non numquam officia porro quam recusandae soluta ullam vero? Explicabo incidunt molestias perspiciatis quia recusandae reprehenderit repudiandae.</span><span>A eos excepturi nulla possimus repellat soluta tempora. A, ad aperiam, beatae cupiditate eaque earum necessitatibus perspiciatis possimus sequi similique sint veniam voluptas, voluptatibus? Architecto blanditiis esse omnis repellat vel.</span></p>
 
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-md-4 col-lg-4 ml-lg-0">
-
-                    <!--Social buttons-->
-                    <div class="text-center text-md-right">
-                        <ul class="list-unstyled list-inline">
-                            <li class="list-inline-item"><a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="list-inline-item"><a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+            </div>
+            <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+            <div class="row pb-3">
+                <div class="col-md-12">
+                    <div class="mb-5 flex-center">
+                        <a class="fb-ic">
+                            <
+                            <icon name="ban"> </icon>
+                            <i class="fa fa-facebook fa-lg white-text mr-md-4"> </i>
+                        </a>
+                        <a class="tw-ic">
+                            <i class="fa fa-twitter fa-lg white-text mr-md-4"> </i>
+                        </a>
+                        <a class="gplus-ic">
+                            <i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i>
+                        </a>
+                        <a class="li-ic">
+                            <i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i>
+                        </a>
+                        <a class="ins-ic">
+                            <i class="fa fa-instagram fa-lg white-text mr-md-4"> </i>
+                        </a>
+                        <a class="pin-ic">
+                            <i class="fa fa-pinterest fa-lg white-text"> </i>
+                        </a>
                     </div>
-                    <!--/.Social buttons-->
-
                 </div>
-                <!--Grid column-->
-
             </div>
 
         </div>
+        <div class="footer-copyright py-3 text-center">
+            © 2018 Copyright:
+            <router-link class="navbar-brand" to="/">BuyCar</router-link>
+        </div>
+
 
     </footer>
-    <!--/.Footer-->
+
+
 
 
 </template>

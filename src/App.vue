@@ -1,12 +1,12 @@
 <template>
-
     <div class="wrapper">
-        <main-header v-on:search="search = $event"></main-header>
+        <main-header v-on:search="search=$event"></main-header>
         <main>
-            <router-view :cars="filteredCars" :url="url" :config="config"
+            <router-view :cars="$route.name==='Cars'?filteredCars:[]" :url="url" :config="config"
                          v-on:create-car="cars.push($event)"
-                        v-on:remove-car="cars.splice(cars.indexOf($event),1)"></router-view>
+                         v-on:remove-car="cars.splice(cars.indexOf($event),1)"></router-view>
         </main>
+
         <main-footer></main-footer>
     </div>
 </template>
@@ -14,11 +14,12 @@
 <script>
     import mainHeader from './components/main-header.vue';
     import mainFooter from './components/main-footer.vue';
+
     export default {
         name: 'app',
         components: {
             mainHeader,
-            mainFooter,
+            mainFooter
         },
         data: function () {
             return {
@@ -64,11 +65,17 @@
         }
     }
 </script>
-<style lang="scss">
+<style lang="less">
+    @mainColor:#474747;
     .wrapper {
         display: flex;
         min-height: 100vh;
         flex-direction: column;
+    }
+    .navbar.navbar-light{
+        background: white;
+        box-shadow: 0 0 12px #eeeeee;
+        padding: 0;
     }
 
     main {
@@ -76,9 +83,9 @@
     }
 
     footer {
-        background: #122b40;
+        background: @mainColor;
         color: white;
-        display: flex;
-        justify-content: flex-end;
+       /* display: flex;
+        justify-content: flex-end;*/
     }
 </style>

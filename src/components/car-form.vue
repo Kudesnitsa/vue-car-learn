@@ -89,19 +89,15 @@
         },
         methods: {
             handleSubmit () {
-//                todo check validate fields
                 if (this.state === 'add') {
                     this.addCar();
-
                 }
                 else {
-
                     this.editCar(this.editableCar.id);
                 }
             },
             editCar(id){
                 this.$http.put(this.url + 'auto/' + id, this.editableCar, this.config).then(response => {
-                    console.log(response.body);
                     this.$emit('close-car-form', response.body);
                 }, error => {
                     console.error(error);
@@ -111,7 +107,6 @@
             },
             addCar(){
                 this.$http.post(this.url + 'auto', this.editableCar, this.config).then(response => {
-                    console.log(response.body);
                     this.$emit('close-car-form', response.body);
                 }, error => {
                     console.error(error);
@@ -126,6 +121,7 @@
             handleOk(){
                 if (this.handleOk) {
 //                    todo check your fields
+//                    todo check validate fields
                     this.handleSubmit()
                 }
             }

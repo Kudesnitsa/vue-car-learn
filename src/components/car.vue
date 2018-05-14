@@ -33,7 +33,7 @@
                  @ok="handleOk">
 
             <carForm :url="url" :config="config" :car="car" :handleOk="handleOkFlag" :state="state"
-                     v-on:close-car-form="submitForm($event)"></carForm>
+                     @close-car-form="submitForm($event)"></carForm>
 
         </b-modal>
 
@@ -42,7 +42,6 @@
                  title="Remove?"
                  @ok="handleOkRemove">
 
-            db adgdag
 
 
         </b-modal>
@@ -92,7 +91,6 @@
             handleOkRemove (evt){
                 evt.preventDefault();
                 this.$http.delete(this.url + 'auto/'+ this.car.id, this.config).then(response => {
-                    console.log(response.body);
                     this.$emit('remove-car', this.car);
                     this.$router.push('/cars');
                 }, error => {

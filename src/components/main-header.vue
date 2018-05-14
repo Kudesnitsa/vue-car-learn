@@ -1,7 +1,8 @@
 <template>
       <header>
-          <nav class="navbar navbar-light bg-light justify-content-between">
-
+          <nav class="navbar navbar-light  justify-content-between">
+              <router-link class="navbar-brand long" to="/"><img style="width: 200px" src="../assets/images/logo.png"/>
+              </router-link>
               <router-link class="navbar-brand" to="/">Home</router-link>
               <router-link class="navbar-brand" to="/cars">Cars</router-link>
               <router-link class="navbar-brand" to="/car/add">Add car</router-link>
