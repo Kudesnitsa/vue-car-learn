@@ -1,5 +1,5 @@
 <template>
-    <section class="container">
+    <section class="container cars_block">
         <div class="items row" v-if="cars.length">
             <div class="item col-12	col-sm-6 col-lg-4 col-xl-3 " v-for="(car, index) in cars">
                 <router-link :to="'car/'+car.id">
@@ -11,14 +11,11 @@
                         <div class="name">
                             {{car.name}}
                         </div>
-                        <div class="run">
-                            {{car.run}}
-
-                        </div>
                         <div class="description">
                             {{car.description}}
-
                         </div>
+                        <div class="run" v-if="car.price !==0">{{car.run/1000}}</div>
+                        <div class="price" v-if="car.price !==0">{{car.price}}</div>
                     </div>
                 </router-link>
             </div>
@@ -35,5 +32,8 @@
         data: function () {
             return {}
         },
+        created(){
+            console.log(cars)
+        }
     }
 </script>

@@ -6,14 +6,10 @@ import Resource from "vue-resource"
 import router from './router'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-reboot.css'
-import 'vue-awesome/icons'
-import Icon from 'vue-awesome/components/Icon'
-Vue.component('icon', Icon);
+Vue.config.productionTip = false;
+
 Vue.use(VueBootstrap);
 Vue.use(Resource);
-
-
-Vue.config.productionTip = false;
 
 new Vue({
     el: '#app',

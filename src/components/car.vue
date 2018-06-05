@@ -1,35 +1,89 @@
 <template>
-    <section class="container">
-        <div class="items row" v-if="car">
-            <div class="item col-12	col-sm-6 col-lg-4 col-xl-3 ">
-                <div class="photo">
+    <section class="container one_car">
+        <div class="row" v-if="car">
+            <div class="table">
+
+            </div>
+            <div class="col-xl-6 car col-12	col-sm-12 col-lg-6 col-xl-6">
+                <div class="photo ">
+                    <b-btn v-b-modal.modalPrevent class="car_btn">Edit</b-btn>
+                    <b-btn v-b-modal.modalRemove class="car_btn">Delete</b-btn>
                     <img style="width: 100%" src="http://iceek.ucoz.ru/Avto/SportCar2_salon.jpg"/>
                 </div>
+
                 <div class="info">
                     <div class="name">
                         {{car.name}}
                     </div>
-                    <div class="run">
-                        {{car.run}}
-
-                    </div>
                     <div class="description">
                         {{car.description}}
-
+                    </div>
+                    <div class="run">{{car.run}}</div>
+                    <div class="price">{{car.price}}</div>
+                    <div class="info_item">
+                        <div class="label">Телефон власника</div>
+                        <a :href="'tel:'+car.phone" class="value">{{car.phone}}</a>
+                    </div>
+                    <div class="datum">Характеристика</div>
+                    <div class="info_item">
+                        <div class="label">Двигун</div>
+                        <div class="value">{{car.fuelConsumption}}л.</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="label">Об'єм</div>
+                        <div class="value">{{car.volume}}</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="label">Тип</div>
+                        <div class="value">{{car.transportType}}</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="label">Паливо</div>
+                        <div class="value">{{car.fuel}}</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="label">Тип коробки передач</div>
+                        <div class="value">{{car.transmission}}</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="label">типу компоновки</div>
+                        <div class="value">{{car.driveType}}</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="label">Місто</div>
+                        <div class="value">{{car.city}}</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="label">Коляр</div>
+                        <div class="value">{{car.color}}</div>
+                    </div>
+                    <div v-if="car.abs" class="info_item">
+                        <div class="label">ABS</div>
+                        <div class="value">має</div>
+                    </div>
+                    <div v-if="car.centralLock" class="info_item">
+                        <div class="label">Центральний замок</div>
+                        <div class="value">має</div>
+                    </div>
+                    <div v-if="car.airbag" class="info_item">
+                        <div class="label">Подушки безпеки</div>
+                        <div class="value">має</div>
+                    </div>
+                    <div v-if="car.alarms" class="info_item">
+                        <div class="label">Сигналізація</div>
+                        <div class="value">має</div>
                     </div>
                 </div>
 
             </div>
         </div>
-        <div v-else class="no-items">
+        <div v-else class="no-info_items">
             car not found
         </div>
-        <b-btn v-b-modal.modalPrevent>Launch demo modal</b-btn>
-        <b-btn v-b-modal.modalRemove>Launch demo modal</b-btn>
 
         <b-modal id="modalPrevent"
                  ref="modal"
-                 title="Submit your name"
+                 title="Ведіть дані"
                  @ok="handleOk">
 
             <carForm :url="url" :config="config" :car="car" :handleOk="handleOkFlag" :state="state"
@@ -41,7 +95,6 @@
                  ref="modalRemove"
                  title="Remove?"
                  @ok="handleOkRemove">
-
 
 
         </b-modal>
@@ -90,7 +143,7 @@
             },
             handleOkRemove (evt){
                 evt.preventDefault();
-                this.$http.delete(this.url + 'auto/'+ this.car.id, this.config).then(response => {
+                this.$http.delete(this.url + 'auto/' + this.car.id, this.config).then(response => {
                     this.$emit('remove-car', this.car);
                     this.$router.push('/cars');
                 }, error => {
@@ -133,6 +186,8 @@
                 return this.$route.params.id;
             }
         },
+
+
         watch: {
             id(){
                 this.checkId(this.id);
